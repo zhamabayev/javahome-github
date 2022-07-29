@@ -1,12 +1,30 @@
-package JavaCore.HomeWork1;
+import java.util.Objects;
+
 
 public class Course {
-    public int runDistance;
-    public int swimDistance;
+    private final String name;
 
-    Course(int runDistance, int swimDistance) {
-        this.runDistance = runDistance;
-        this.swimDistance = swimDistance;
+    public Course(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return Objects.equals(name, course.name);
+    }
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
-
